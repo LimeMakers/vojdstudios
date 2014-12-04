@@ -1,0 +1,237 @@
+{% if settings.show-slideshow %}
+<section class="slideshow {% if settings.slideshow-match-width %}content-area{% endif %} clearfix">
+  {% for i in (1..5) %}
+
+    {% capture enabled %}show-slide-{{i}}{% endcapture %}
+    {% capture invert %}invert-controls-slide-{{i}}{% endcapture %}
+    {% capture content %}show-slide-content-{{i}}{% endcapture %}
+    {% capture position %}slide-position-{{i}}{% endcapture %}
+    {% capture title %}slide-title-{{i}}{% endcapture %}
+    {% capture tagline %}slide-tagline-{{i}}{% endcapture %}
+    {% capture button %}slide-button-{{i}}{% endcapture %}
+    {% capture link %}slide-link-{{i}}{% endcapture %}
+
+    {% if settings[enabled] %}
+      <div class="slide {% if settings[invert] %}invert{% endif %}">
+        <div class="image-wrap">
+          <span class="prev"><span class="icon">[</span></span>
+          <span class="next"><span class="icon">]</span></span>
+          <ul class="jump-to-slide"></ul>
+
+          {% if settings[content] == false and settings[link] != blank %}
+            <a href="{{ settings[link] }}">
+              <img alt="{{ settings[title] }}" src="{{ 'slide-image-' | append: i | append: '.jpg' | asset_url }}">
+            </a>
+          {% else %}
+            <img alt="{{ settings[title] }}" src="{{ 'slide-image-' | append: i | append: '.jpg' | asset_url }}">
+          {% endif %}
+        </div>
+
+        {% if settings[content] %}
+          <div class="content-outer-wrap">
+            <a class="mobile-link" href="{{ settings[link] }}"></a>
+            <div class="content-inner-wrap">
+              <div class="content {{ settings[position] }}">
+                {% if settings[title] != blank %}
+                  <h2 class="title">{{ settings[title] }}</h2>
+                {% endif %}
+                {% if settings[tagline] != blank %}
+                  <h3 class="tagline">{{ settings[tagline] }}</h3>
+                {% endif %}
+                {% if settings[button] != blank and settings[link] != blank %}
+                  <a class="call-to-action" href="{{ settings[link] }}">
+                    {{ settings[button] }} <span class="arrow">></span>
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+
+      </div>
+    {% endif %}
+
+  {% endfor %}
+</section>
+{% endif %}
+
+<div class="content-area">
+
+{% capture theme_settings_link %}
+  <a href="/admin/themes">{{ 'onboarding.theme_settings_link' | t }}</a>
+{% endcapture %}
+
+{% if settings.display-welcome-message %}
+<!-- Welcome area
+============================================= -->
+<section class="welcome-area">
+  {% if settings.welcome-title.size == 0 and settings.welcome-tagline.size == 0 %}
+    <h2>{{ 'onboarding.welcome_title' | t }}</h2>
+    <h3>{{ 'onboarding.welcome_text_html' | t: theme_settings_link: theme_settings_link }}</h3>
+  {% else %}
+    {% if settings.welcome-title.size > 0 %}<h2>{{ settings.welcome-title }}</h2>{% endif %}
+    {% if settings.welcome-tagline.size > 0 %}<h3>{{ settings.welcome-tagline }}</h3>{% endif %}
+  {% endif %}
+</section>
+{% endif %}
+
+
+{% if settings.display-featured-collections %}
+
+  {% assign positionClass = '' %}
+  {% if settings.display-welcome-message == false %}
+    {% assign positionClass = 'first' %}
+  {% endif %}
+
+<!-- Featured collections
+============================================= -->
+<section class="featured-collections {{ positionClass }}">
+  <h2 class="section-title section-border">{{ 'home_page.featured_collections.title' | t }}</h2>
+  <div class="wrap">
+
+    {% if collections[settings.featured-collection-1].products.size > 0 or collections[settings.featured-collection-2].products.size > 0 or collections[settings.featured-collection-3].products.size > 0 %}
+
+      {% if collections[settings.featured-collection-1].image %}
+        {% assign imgSrc-1 = collections[settings.featured-collection-1].image.src | collection_img_url: 'large' %}
+      {% else %}
+        {% assign imgSrc-1 = collections[settings.featured-collection-1].products.first.featured_image | product_img_url: 'large' %}
+      {% endif %}
+
+      {% if collections[settings.featured-collection-2].image %}
+        {% assign imgSrc-2 = collections[settings.featured-collection-2].image.src | collection_img_url: 'large' %}
+      {% else %}
+        {% assign imgSrc-2 = collections[settings.featured-collection-2].products.first.featured_image | product_img_url: 'large' %}
+      {% endif %}
+
+      {% if collections[settings.featured-collection-3].image %}
+        {% assign imgSrc-3 = collections[settings.featured-collection-3].image.src | collection_img_url: 'large' %}
+      {% else %}
+        {% assign imgSrc-3 = collections[settings.featured-collection-3].products.first.featured_image | product_img_url: 'large' %}
+      {% endif %}
+      
+      {% if collections[settings.featured-collection-1].products.size > 0 %}
+        <div class="collection-wrap first">
+          <div class="collection" style="background-image:url({{ imgSrc-1 }});">
+            <a href="{{ collections[settings.featured-collection-1].url }}">
+              <h3 class="label preload">{{ collections[settings.featured-collection-1].title }}</h3>
+              <span class="browse">{{ 'collections.collection.browse' | t }}</span>
+            </a>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if collections[settings.featured-collection-2].products.size > 0 %}
+        <div class="collection-wrap">
+          <div class="collection" style="background-image:url({{ imgSrc-2 }});">
+            <a href="{{ collections[settings.featured-collection-2].url }}">
+              <h3 class="label preload">{{ collections[settings.featured-collection-2].title }}</h3>
+              <span class="browse">{{ 'collections.collection.browse' | t }}</span>
+            </a>
+          </div>
+        </div>
+      {% endif %}
+      
+      {% if collections[settings.featured-collection-3].products.size > 0 %}
+        <div class="collection-wrap">
+          <div class="collection" style="background-image:url({{ imgSrc-3 }});">
+            <a href="{{ collections[settings.featured-collection-3].url }}">
+              <h3 class="label preload">{{ collections[settings.featured-collection-3].title }}</h3>
+              <span class="browse">{{ 'collections.collection.browse' | t }}</span>
+            </a>
+          </div>
+        </div>
+      {% endif %}
+
+    {% else %}
+
+      <div class="load-up">
+        {{ 'onboarding.featured_collections_text_html' | t: theme_settings_link: theme_settings_link }}
+      </div>
+
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+{% if settings.display-featured-products %}
+
+  {% assign positionClass = '' %}
+  {% if settings.display-welcome-message == false and settings.display-featured-collections == false %}
+    {% assign positionClass = 'first' %}
+  {% endif %}
+
+  {% assign featured-product-limit = settings.featured-products-limit | times: 1 %}
+
+<!-- Featured products
+============================================= -->
+<section class="featured-products clearfix {{ positionClass }} {% if featured-product-limit > 4 %}multi-row{% endif %}">
+  <h2 class="section-title section-border">{{ 'home_page.featured_products.title' | t }}</h2>
+
+  {% if shop.products_count > 0 and collections.[settings.featured-products-collection].title.size == 0 %}
+
+    <p class="load-up">{{ 'onboarding.featured_products_text_html' | t: theme_settings_link: theme_settings_link }}</p>
+
+  {% elsif shop.products_count > 0 and collections.[settings.featured-products-collection].products.size == 0 %}
+    <!-- ONLY renders when the store has products but the specified collection does NOT have any products -->
+    {% capture collection_screen_link %}
+      <a href="{{ shop.url }}/admin/collections">{{ 'onboarding.collection_screen_link' }}</a>
+    {% endcapture %}
+    <p class="load-up">{{ 'onboarding.featured_products_empty_text_html' | t: collection_screen_link: collection_screen_link }}</p>
+
+  {% elsif shop.products_count == 0 %}
+
+    {% capture new_product_link %}
+      <a href="{{ shop.url }}/admin/products/new">{{ 'onboarding.new_product_link' }}</a>
+    {% endcapture %}
+    <div class="load-up">{{ 'onboarding.no_products_text_html' | t: new_product_link: new_product_link }}</div>
+
+  {% else %}
+
+    <ul class="product-list">
+    {% for product in collections.[settings.featured-products-collection].products limit: settings.featured-products-limit %}{% include 'product-item' %}{% endfor %}
+    </ul>
+
+  {% endif %}
+
+</section>
+{% endif %}
+
+
+{% if settings.display-featured-blog %}
+
+  {% assign positionClass = '' %}
+  {% if settings.display-welcome-message == false and settings.display-featured-collections == false and settings.display-featured-products == false %}
+    {% assign positionClass = 'first' %}
+  {% endif %}
+
+<!-- Featured blog
+============================================= -->
+<section class="blog {{ positionClass }}">
+  <h2 class="section-title section-border">{{ 'home_page.featured_blog.title' | t }}</h2>
+  {% if blogs.[settings.featured-blog].articles.size > 0 %}
+  <ul class="articles">
+    {% for article in blogs.[settings.featured-blog].articles limit: 4 %}<li class="article {% include 'for-looper' %}">
+      <a class="date" href="{{ article.url }}">{{ article.published_at | date: format: 'full_month' }}</a>
+      <a class="title" href="{{ article.url }}">{{ article.title }}</a>
+      <div class="rte content">
+        {{ article.excerpt_or_content }}
+      </div>
+    </li>{% endfor %}
+  </ul>
+  {% endif %}
+</section>
+{% endif %}
+
+{% if settings.display-as-seen-on %}
+  {% include 'as-seen-on' %}
+{% endif %}
+
+{% if settings.show-instagram-widget and settings.instagram-access-token != blank %}
+  {% include 'instagram-widget' %}
+{% endif %}
+
+{% if settings.show-twitter-widget %}
+ {% include 'twitter-widget' %}
+{% endif %}
+
+</div>

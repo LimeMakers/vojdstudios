@@ -1,0 +1,80 @@
+<!-- Footer
+============================================= -->
+{% assign footerModules = 1 %}
+
+{% unless settings.twitter-url.size == 0 and facebook.twitter-url.size == 0 and settings.pinterest-url.size == 0 and settings.instagram-url.size == 0 %}
+  {% assign footerModules = footerModules | plus: 1 %}
+{% endunless %}
+
+{% if settings.show-mailing-list %}
+  {% assign footerModules = footerModules | plus: 1 %}
+{% endif %}
+
+<footer class="main-footer content-area" id="main-footer">
+
+  <!-- Connect with us
+  ++++++++++++++++++++++++++++ -->
+  <ul class="connect clearfix module-count-{{ footerModules }}">
+    <li class="contact first">
+      <h2 class="title">{{ 'layout.footer.contact_title' | t }}</h2>
+      {% if settings.shop-phone != blank %}
+        <p class="phone">{{ settings.shop-phone }}</p>
+      {% else %}
+        <p class="phone">{{ 'onboarding.call_us_text' | t }}</p>
+      {% endif %}
+      <p class="email"><a href="mailto:{{ shop.email }}">{{ shop.email }}</a></p>
+    </li>{% unless settings.twitter-url.size == 0 and settings.facebook-url.size == 0 and settings.pinterest-url.size == 0 and settings.instagram-url.size == 0 %}<li class="social">
+      <h2 class="title">{{ 'layout.footer.social_title' | t }}</h2>
+      <ul>
+        {% if settings.twitter-url.size > 0 %}<li class="social-link twitter"><a href="{{ settings.twitter-url }}" target="_blank">t</a></li>{% endif %}
+        {% if settings.facebook-url.size > 0 %}<li class="social-link facebook"><a href="{{ settings.facebook-url }}" target="_blank">f</a></li>{% endif %}
+        {% if settings.pinterest-url.size > 0 %}<li class="social-link pinterest"><a href="{{ settings.pinterest-url }}" target="_blank">p</a></li>{% endif %}
+        {% if settings.google-plus-url.size > 0 %}<li class="social-link google-plus"><a href="{{ settings.google-plus-url }}" target="_blank">g</a></li>{% endif %}
+        {% if settings.instagram-url.size > 0 %}<li class="social-link instagram"><a href="{{ settings.instagram-url }}" target="_blank">i</a></li>{% endif %}
+        {% if settings.tumblr-url.size > 0 %}<li class="social-link tumblr"><a href="{{ settings.tumblr-url }}" target="_blank">T</a></li>{% endif %}
+        {% if settings.youtube-url.size > 0 %}<li class="social-link youtube"><a href="{{ settings.youtube-url }}" target="_blank">y</a></li>{% endif %}
+        {% if settings.vimeo-url.size > 0 %}<li class="social-link vimeo"><a href="{{ settings.vimeo-url }}" target="_blank">V</a></li>{% endif %}
+      </ul>
+    </li>{% endunless %}{% if settings.show-mailing-list %}<li class="newsletter">
+      <h2 class="title">{{ 'layout.footer.newsletter_title' | t }}</h2>
+      <form action="{{ settings.mailchimp-action-url }}" method="post" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <div class="wrap">
+          <input class="email" name="EMAIL" type="email" placeholder="{{ 'layout.footer.email' | t }}" value="">
+          <input class="submit" name="subscribe" type="submit" value="{{ 'general.submit' | t }}">
+        </div>
+      </form>
+    </li>{% endif %}
+  </ul>
+
+  <!-- Sub-footer
+  ++++++++++++++++++++++++++++ -->
+  <div class="sub-footer">
+    {% if linklists.footer.links.size > 0 %}
+    <nav class="footer-nav">
+      <ul>
+        {% for link in linklists.footer.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+    {% endif %}
+    <p><a href="http://www.pixelunion.net/themes/shopify/atlantic">Atlantic Theme</a> by <a href="http://www.pixelunion.net">Pixel Union</a>. {{ powered_by_link }}.</p>
+    <ul class="payment-options {% if settings.payment-icon-colour == 'light' %}light{% endif %}">
+      {% if settings.show-diners-club %}<li class="diners-club"></li>{% endif %}
+      {% if settings.show-maestro %}<li class="maestro"></li>{% endif %}
+      {% if settings.show-interac %}<li class="interac"></li>{% endif %}
+      {% if settings.show-visa %}<li class="visa"></li>{% endif %}
+      {% if settings.show-mastercard %}<li class="mastercard"></li>{% endif %}
+      {% if settings.show-discover %}<li class="discover"></li>{% endif %}
+      {% if settings.show-dk %}<li class="dk"></li>{% endif %}
+      {% if settings.show-american-express %}<li class="american-express"></li>{% endif %}
+      {% if settings.show-google-wallet %}<li class="google-wallet"></li>{% endif %}
+      {% if settings.show-paypal %}<li class="paypal"></li>{% endif %}
+      {% if settings.show-jcb %}<li class="jcb"></li>{% endif %}
+      {% if settings.show-cirrus %}<li class="cirrus"></li>{% endif %}
+      {% if settings.show-stripe %}<li class="stripe"></li>{% endif %}
+      {% if settings.show-bitcoin %}<li class="bitcoin"></li>{% endif %}
+    </ul>
+  </div>
+
+</footer>

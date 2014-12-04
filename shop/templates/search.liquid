@@ -1,0 +1,60 @@
+<section class="content content-area">
+
+  {% include 'breadcrumbs' %}
+
+  <div class="page-title">
+    <h1 class="label">{{ 'general.search.header' | t }}</h1>
+  </div>
+
+  {% paginate search.results by settings.search-results-per-page %}
+  <section class="results">
+
+    {% capture results %}
+      {{ 'general.search.results' | t: count: search.results_count }}
+    {% endcapture %}
+    <p class="results-label">{{ 'general.search.results_text' | t: results: results, results_count: search.results_count, search_terms: search.terms }}</p>
+
+    {% for item in search.results %}
+      <article class="result {% include 'for-looper' %} {% if item.featured_image %}item-product{% else %}item-article{% endif %}" data-type="{{ item.type }}">
+
+        {% if item.featured_image %}
+
+          <figure>
+            <img alt="{{ item.images[0].alt }}" src="{{ item.images[0] | product_img_url: 'large' }}">
+              <a class="{% if settings.product-image-borders %}overlay{% endif %}" href="{{ item.url }}"></a>
+          </figure><div class="details">
+            <p class="brand">{{ item.vendor | link_to_vendor }}</p>
+            <p class="title"><a href="{{ item.url }}">{{ item.title }}</a></p>
+            {% if item.compare_at_price_min > item.price_min %}
+                <p class="price sale"><span class="label">{{ 'products.product.on_sale' | t }}</span> <span class="original money">{{ item.compare_at_price_min | money }}</span> <span class="money">{{ item.price_min | money }}</span></p>
+            {% else %}
+                <p class="price"><span class="money">{{ item.price_min | money }}</span></p>
+            {% endif %}
+          </div>
+
+        {% else %}
+
+          <h2 class="title"><a href="{{ item.url }}">{{ item.title }}</a></h2>
+          <div class="rte clearfix">
+            {% if item.excerpt.size > 0 %}
+              {{ item.excerpt }}
+            {% else %}
+              <p>{{ item.content | strip_html | truncatewords: 50 }}</p>
+            {% endif %}
+          </div>
+
+        {% endif %}
+
+      </article>
+    {% endfor %}
+
+    {% if paginate.previous or paginate.next %}
+      {% include 'pagination' %}
+    {% endif %}
+
+  </section>
+  {% endpaginate %}
+
+</section>
+
+

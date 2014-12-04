@@ -1,0 +1,21 @@
+<section class="content content-area">
+
+  {% include 'breadcrumbs' %}
+
+  <div class="page-title">
+    <h2 class="label"><a href="{{ blog.url }}">{{ blog.title }}</a></h2>
+  </div>
+
+  <div class="content-wrap clearfix">
+
+    <section class="articles">
+        {% include 'article-item' %}
+    </section>
+
+    {% if settings.display-recent-posts or settings.display-tag-list %}
+      {% include 'blog-sidebar' %}
+    {% endif %}
+
+  </div>
+
+</section>
