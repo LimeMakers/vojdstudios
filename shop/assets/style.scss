@@ -643,7 +643,7 @@ body {
 }
 
 .page-title {
-  padding:16px 0 35px;
+  padding:16px 0 20px;
   border-bottom: 1px solid $primary-border-color;
 
   @include breakpoint(small) {
@@ -1078,10 +1078,10 @@ body {
 }
 
 .main-header nav {
-  border-top: 1px solid $primary-border-color;
+  // border-top: 1px solid $primary-border-color;
 
   &.bordered {
-    border-bottom: 2px solid $primary-border-color;
+    //border-bottom: 2px solid $primary-border-color;
   }
   &.full {
     display: block;
@@ -4043,9 +4043,9 @@ be found in product.scss
 
     .description {
       float:left;
-      width:60%;
+      width:50%;
       padding-right:30px;
-      margin-top:50px;
+      margin-top:20px;
 
       @include breakpoint(small) {
         float:none;
@@ -4067,7 +4067,7 @@ be found in product.scss
   }
 
   .product-list {
-    padding:50px 0 0;
+    padding:20px 0 0;
     @include breakpoint(small) { padding:10px 0 0; }
 
     .product {

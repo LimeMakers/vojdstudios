@@ -23,11 +23,13 @@
               </select>
             </div>
           {% endif %}
-
+          {% if cart.item_count >= 1 %} 
           <a class="search" href="#"><span class="icon">s</span><label>{{ 'general.search_placeholder' | t }}</label></a>
+          {% endif %}
         </div>
 
         <div class="tools-right">
+        {% if cart.item_count >= 1 %} 
           <div class="mini-cart-wrap" href="#">
             <span class="icon">c</span><label><span class="item-count">{{ cart.item_count }}</span> {{ 'layout.header.item_count' | t: count: cart.item_count }}</label>
             <div class="mini-cart {% if shop.customer_accounts_enabled %}account-enabled{% endif %} {% if cart.items.size == 0 %}empty-cart{% endif %}">
@@ -57,7 +59,7 @@
               </div>
             </div>
           </div>
-
+          
           {% if shop.customer_accounts_enabled %}
 
             {% if customer %}
@@ -69,6 +71,7 @@
             {% endif %}
 
           {% endif %}
+        {% endif %}
         </div>
       </div>
 

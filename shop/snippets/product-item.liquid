@@ -24,7 +24,11 @@
       {% if itemType.compare_at_price_min > itemType.price_min %}
         <p class="price sale"><span class="label">{{ 'products.product.on_sale' | t }}</span> <span class="original money">{{ itemType.compare_at_price_min | money }}</span> <span class="money">{{ itemType.price_min | money }}</span></p>
       {% else %}
+        {% if template == "index" %}
+        {% else %}
         <p class="price"><span class="money">{{ itemType.price_min | money }}</span></p>
+        {% endif %} 
+        
       {% endif %}
     {% else %}
       <p class="price"><span class="label">{{ 'products.product.sold_out' | t }}</span></p>

@@ -31,6 +31,7 @@
     {% endif %}
   </div>
 
+
   {% if collection.products.size == 0 %}
     <p class="empty">{{ 'collections.collection.no_products' | t }}</p>
   {% else %}
@@ -40,6 +41,7 @@
       <div class="collection-header clearfix">
 
         <div class="description rte">{{ collection.description }}</div>
+        <div class="description rte" style="background-image:url({{ collection.image.src | img_url: 'master' }}); min-height: 400px; background-size: cover; background-position: top center;"></div>
 
         {% if settings.collection-top-pagination %}
           {% if paginate.previous or paginate.next %}
@@ -49,6 +51,7 @@
       </div>
       {% endif %}
     {% endif %}
+
 
     <ul class="product-list {{ settings.products-per-row }}">
     {% for product in collection.products limit: settings.products-per-page %}{% include 'product-item' %}{% endfor %}
