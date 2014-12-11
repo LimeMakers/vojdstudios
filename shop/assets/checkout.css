@@ -1,10 +1,16 @@
 
 
+    @import url('//fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic');
 
 
 
 
+    @import url('//fonts.googleapis.com/css?family=Raleway:400,700,600');
 
+
+
+
+    @import url('//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,700,600');
 
 
 
@@ -14,9 +20,9 @@
 
 
 body {
-  color:#939399;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background-color: #232324;
+  color:#666666;
+  font-family: 'PT Serif', 'Times New Roman', Times, serif;
+  background-color: #ffffff;
   line-height:1.4 !important;
   padding:44px 0 20px;
 }
@@ -57,17 +63,17 @@ body {
 #email label,
 .group h3,
 .pgroup h3 {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
 
 input[type="text"], input[type="email"], input[type="number"], input[type="password"], textarea {
-    border:1px solid #373738;
-    background-color: #232324;
-    color: #939399;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    border:1px solid #dddddd;
+    background-color: #ffffff;
+    color: #666666;
+    font-family: 'Open Sans', sans-serif;
     outline:none;
     font-size: 12px;
     border-radius:0;
@@ -91,7 +97,7 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
     color:#F77E79;
     font-size:12px;
     font-weight: 400;
-    font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family:'PT Serif', 'Times New Roman', Times, serif;
     position: relative;
     top:-4px;
 }
@@ -102,12 +108,12 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 
 #info-bar {
-    background: #282829;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: #f9f9f9;
+    font-family: 'Open Sans', sans-serif;
     font-size:12px;
-    color:#5c5c61;
+    color:#bbbbbb;
     padding:13px 0;
-    border-bottom:1px solid #2d2d2e;
+    border-bottom:1px solid #e5e5e5;
 }
 
 #info-bar span { margin-left:5px; }
@@ -119,6 +125,13 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 }
 
 
+#logo {
+    background:url(//cdn.shopify.com/s/files/1/0704/9113/t/4/assets/logo.png?691) 50% 50% no-repeat;
+    width:100%;
+    height: px;
+    margin:30px auto;
+}
+
 
 #header #tagline {
     padding:0 0 0;
@@ -128,18 +141,22 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 #header #tagline .title {
     display: block;
     
+        display:none;
+    
     font-size:28px;
     padding:50px 0 40px;
-    border-bottom:1px solid #373738;
-    color: #e8e8f0;
+    border-bottom:1px solid #dddddd;
+    color: #222222;
 }
 
 #header #tagline .subtitle {
     display: block;
     font-size: 35px;
-    color: #e8e8f0;
+    color: #222222;
     padding:50px 0 40px;
-    border-bottom:1px solid #373738;
+    border-bottom:1px solid #dddddd;
+    
+        border-top:1px solid #dddddd;
     
 }
 
@@ -163,7 +180,7 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 
 #main, #overview, #wallet, #thumbs, #products, #cost,
 #steps {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'PT Serif', 'Times New Roman', Times, serif;
 }
 
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
@@ -173,7 +190,7 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 #overview {
     background:none;
     padding:40px 0 0;
-    border-bottom:1px solid #373738;
+    border-bottom:1px solid #dddddd;
 }
 
     #products {
@@ -186,13 +203,13 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
     #products h2 {
         font-size: 14px;
         padding-bottom:55px;
-        color:#939399;
+        color:#666666;
     }
 
     #thumbs {
         margin-top:0;
         padding-bottom:30px;
-        border-right:1px solid #373738;
+        border-right:1px solid #dddddd;
     }
 
     .slim #thumbs {
@@ -221,12 +238,12 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 
         #thumbs img {
             display: block;
-            border:1px solid #373738;
+            border:1px solid #dddddd;
         }
 
         .slim #thumbs img {
             float:left;
-            border:1px solid #373738;
+            border:1px solid #dddddd;
         }
 
         #thumbs h3 {
@@ -234,15 +251,15 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
             font-weight: 400;
             margin-left:55px;
             line-height: 1.4;
-            color:#ff7f6e;
+            color:#858585;
         }
 
         #thumbs br { display:none; }
 
         #thumbs span {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Open Sans', sans-serif;
             font-size: 10px;
-            color:#5c5c61;
+            color:#bbbbbb;
             display: block;
             margin-top:2px;
             margin-left:55px;
@@ -250,7 +267,7 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 
         .slim #thumbs h3 span {
             margin-left:0px;
-            color:#939399;
+            color:#666666;
         }
 
     #discounts, #gift-cards {
@@ -269,7 +286,7 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
         #wallet #cost {
             font-size:29px;
             font-weight: 700;
-            color:#939399;
+            color:#666666;
             margin-bottom:25px;
             text-shadow:none;
         }
@@ -277,7 +294,7 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
         #overview .hint {
             display: block;
             font-size:14px;
-            color:#5c5c61;
+            color:#bbbbbb;
             font-style: italic;
             margin:4px 0;
         }
@@ -307,7 +324,7 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 #gateway-logos {
     padding:40px 0 35px;
     margin:0 0 0;
-    border-bottom:1px solid #373738;
+    border-bottom:1px solid #dddddd;
 }
 
 
@@ -319,7 +336,7 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
     padding:35px 0;
     background: transparent;
     border:none;
-    border-bottom:1px solid #373738;
+    border-bottom:1px solid #dddddd;
 }
 
 #email label {
@@ -332,19 +349,19 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 }
 
 #email h4.active-customer {
-    color: #ff7f6e;
+    color: #858585;
     font-size:14px;
 }
 
 #email .sign-in-message {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 12px;
-    color:#535357;
+    color:#bbbbbb;
     margin-left:10px;
 }
 
 #email .sign-in-message a {
-    color:#5c5c61;
+    color:#bbbbbb;
     text-decoration: none;
 }
 
@@ -356,7 +373,7 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 #addresses {
     background: transparent;
     border:none;
-    border-bottom:1px solid #373738;
+    border-bottom:1px solid #dddddd;
     padding:30px 0;
 }
 
@@ -382,7 +399,7 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 .address-notification, .flash.error, .flash.notice, .field-with-errors.severe-error  {
     padding:14px 15px;
     font-size:12px;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color:#F77E79;
     background-color:#FBEDEC;
     border:1px solid #F77E79;
@@ -483,8 +500,8 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 #billing-is-shipping label {
     font-size:12px;
     font-weight: 400;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color:#5c5c61;
+    font-family: 'Open Sans', sans-serif;
+    color:#bbbbbb;
     margin-left:10px;
 }
 
@@ -495,18 +512,18 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 #buttons {
     padding:35px 0 85px;
     background-color: transparent;
-    border-bottom:1px solid #373738;
+    border-bottom:1px solid #dddddd;
 }
 
 #buttons input, #create-account-btn, .slim #create-account input[type="submit"], #discounts input[type="submit"], #gift-cards input[type="submit"], #confirm {
     display: inline-block;
         *display:inline;
         zoom:1;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-size:12px;
     font-weight:700;
     color:#ffffff;
-    background:#ff7f6e;
+    background:#858585;
     outline:0;
     border:0;
     padding:9px 14px;
@@ -529,12 +546,12 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 #cancel-purchase {
     margin-left:15px;
     font-size: 12px;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color:#535357;
+    font-family: 'Open Sans', sans-serif;
+    color:#bbbbbb;
 }
 
 #cancel-purchase a {
-    color:#5c5c61;
+    color:#bbbbbb;
     text-decoration:none;
 }
 
@@ -545,7 +562,7 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 
 #payment {
     padding:35px 0 35px;
-    border-bottom:1px solid #373738;
+    border-bottom:1px solid #dddddd;
 }
 
 #payment h3 {
@@ -567,7 +584,7 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 
 #payment-method {
     padding:35px 0;
-    border-bottom:1px solid #373738;
+    border-bottom:1px solid #dddddd;
 }
 
 #payment-method table td {
@@ -601,8 +618,8 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 
 #credit-card-info .hint a {
     font-size: 12px;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color:#5c5c61;
+    font-family: 'Open Sans', sans-serif;
+    color:#bbbbbb;
     text-decoration:none;
     text-transform: capitalize;
     margin-left:10px;
@@ -615,7 +632,7 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 
 #marketing-box {
     padding:35px 0;
-    border-bottom:1px solid #373738;
+    border-bottom:1px solid #dddddd;
 }
 
 #marketing-box .sst {
@@ -629,24 +646,24 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 
 .slim #content {
     padding:35px 0;
-    border-bottom:1px solid #373738;
+    border-bottom:1px solid #dddddd;
 }
 
 .slim #content p {
     margin:7px 0;
     font-size:14px;
-    color:#939399;
+    color:#666666;
 }
 
 .slim #content p a {
-    color:#ff7f6e;
+    color:#858585;
     text-decoration: none;
 }
 
 .slim #overview h2 {
     display: block;
     font-size:14px;
-    color:#939399;
+    color:#666666;
     margin:0 0 50px;
 }
 
@@ -660,7 +677,7 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
     *display: inline;
     font-weight: 700;
     margin:20px 10px 30px 0;
-    color:#939399;
+    color:#666666;
 }
 
 .slim #create-account .form.full td {
@@ -673,7 +690,7 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 
 .slim #create-account .form.full label {
     font-weight: 400;
-    color:#939399;
+    color:#666666;
 }
 
 .slim #create-account-btn {
@@ -700,7 +717,7 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 .confirmation-page #customer_info,
 .confirmation-page #shipping {
     padding: 30px 0 20px;
-    border-bottom: 1px solid #373738;
+    border-bottom: 1px solid #dddddd;
 }
 
 .confirmation-page #payment {
@@ -719,14 +736,14 @@ input[type="text"], input[type="email"], input[type="number"], input[type="passw
 
 #shop-policies a, .footer p {
     font-size: 12px;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color:#5c5c61;
+    font-family: 'Open Sans', sans-serif;
+    color:#bbbbbb;
     text-decoration:none;
 }
 
 .footer p {
     margin-top:10px;
-    color:#939399;
+    color:#666666;
 }
 
 #container.slim #footer {

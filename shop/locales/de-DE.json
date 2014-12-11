@@ -1,0 +1,40 @@
+{
+  "general": {
+    "account": "Nutzerkonto",
+    "name": "Name",
+    "name_placeholder": "Dein Name",
+    "email": "Email",
+    "email_placeholder": "email@email.com",
+    "message": "Nachricht",
+    "password": "Passwort",
+    "price": "Preis",
+    "product": "Produkt",
+    "quantity": "Anzahl",
+    "search_placeholder": "Suche",
+    "sign_up": "Registrieren",
+    "submit": "Kaufen",
+    "subtotal": "Summe",
+    "tax": "Umsatzsteuer",
+    "total": "Total",
+    "404": {
+      "title": ""
+    },
+    "breadcrumbs": {
+      "products": "Produkte",
+      "cart": "Warenkorb"
+    },
+    "search": {
+      "header": "Suchergebnisse",
+      "results_text": "{{ results_count }} {{ results }} für '{{ search_terms }}'",
+      "results": {
+        "one": "Resultat",
+        "other": "Resultate"
+      }
+    },
+    "pagination": {
+      "summary": "Seite {{ current_page }} von {{ pages }}",
+      "previous": "Zurück",
+      "next": "Nächste"
+    }
+  }
+}
