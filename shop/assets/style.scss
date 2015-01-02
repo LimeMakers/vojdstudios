@@ -6373,7 +6373,7 @@ be found in product.scss
 //************************************************************************//
 
 #signUpOverlay {
-    width: 600px;
+    width: 500px;
     padding: 30px;
     display: none;
     background: #FFF;
@@ -6385,6 +6385,28 @@ be found in product.scss
 #signUpOverlay h1{
   font-family: "Source Sans Pro",sans-serif;
   font-weight: 200;
+}
+
+#signUpOverlay .email{
+  padding: 8px 0 8px 8px;
+  width: 100%;
+  background: transparent;
+  font-size: 12px;
+  font-family: "Open Sans",sans-serif;
+  color: #bbb;
+  border:1px solid #bbb;
+  margin-top:20px;
+}
+
+#signUpOverlay .action-button{
+  margin-top:20px;
+}
+
+#signUpOverlay .modal_close{
+  position:absolute;
+  top: 5px;
+  right:10px;
+  cursor:pointer;
 }
 
 #lean_overlay {
