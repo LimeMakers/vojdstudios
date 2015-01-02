@@ -297,34 +297,36 @@
 
     </div>
     <script type="text/javascript">
-    $('a[rel*=leanModal]').leanModal({ top : 200, closeButton: ".modal_close" });
+    $( document ).ready(function() {
+      $('a[rel*=leanModal]').leanModal({ top : 200, closeButton: ".modal_close" });
 
-    function setCookie(cname, cvalue, exdays) {
-        var d = new Date();
-        d.setTime(d.getTime() + (exdays*24*60*60*1000));
-        var expires = "expires="+d.toUTCString();
-        document.cookie = cname + "=" + cvalue + "; " + expires;
-    }
+      function setCookie(cname, cvalue, exdays) {
+          var d = new Date();
+          d.setTime(d.getTime() + (exdays*24*60*60*1000));
+          var expires = "expires="+d.toUTCString();
+          document.cookie = cname + "=" + cvalue + "; " + expires;
+      }
 
-    function getCookie(cname) {
-        var name = cname + "=";
-        var ca = document.cookie.split(';');
-        for(var i=0; i<ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0)==' ') c = c.substring(1);
-            if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
-        }
-        return "";
-    }
+      function getCookie(cname) {
+          var name = cname + "=";
+          var ca = document.cookie.split(';');
+          for(var i=0; i<ca.length; i++) {
+              var c = ca[i];
+              while (c.charAt(0)==' ') c = c.substring(1);
+              if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+          }
+          return "";
+      }
 
-    function checkCookie() {
-        var modal=getCookie("seenModal");
-        if (modal=="") {
-            $("#lean_overlay").click();
-            setCookie("seenModal", true, 30); 
-        }
-    }
-    checkCookie();
+      function checkCookie() {
+          var modal=getCookie("seenModal");
+          if (modal=="") {
+              $("#lean_overlay").click();
+              setCookie("seenModal", true, 30); 
+          }
+      }
+      checkCookie();
+    });
       
       
     </script>
