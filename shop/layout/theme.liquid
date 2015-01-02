@@ -17,6 +17,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="wot-verification" content="67aa63b67a7b424854c5"/>
+  <meta name="google-site-verification" content="ArnKk0b2uKtmObxc1HaUTNo2XQkC2kc5KuQwYPzVl_8" />
   
   <title>{% if template == "index" %} {{ page_title }} {% else %} {{ page_title }} &ndash; {{ shop.name }} {% endif %}</title>
 
@@ -28,6 +29,7 @@
 
   <meta name="viewport" content="width=device-width" />
   <link href="{{ 'favicon.ico' | asset_url }}" rel="shortcut icon" />
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
   <!-- Fonts
   ///////////////////////////////////////// -->
@@ -89,6 +91,7 @@
   ///////////////////////////////////////// -->
   {{ 'modernizr-2.6.2.min.js' | asset_url | script_tag }}
   {{ 'jquery-1.9.min.js' | asset_url | script_tag }}
+  {{ 'jquery.leanModal.min.js' | asset_url | script_tag }}
 
   {{ "option_selection.js"  | shopify_asset_url | script_tag }}
 
@@ -268,5 +271,62 @@
   };
   </script>
 
+  <a href="#signUpOverlay" id="lean_overlay" rel="leanModal" name="lean_overlay"></a>
+  <div id="signUpOverlay">
+    <a class="modal_close"><i class="fa fa-times"></i></a>
+      <h1>JOIN OUR VIP LIST</h1>
+      <h5>NEW PRODUCTS / SAMPLE SALES / EVENTS / EXCLUSIVE DISCOUNTS</h5>
+      <!-- Begin MailChimp Signup Form -->
+      <div id="mc_embed_signup">
+        <form action="//limemakers.us8.list-manage.com/subscribe/post?u=9009493a03af3d5460e11e80e&amp;id=0af9730257" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
+        <div class="mc-field-group">
+          <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="your@email.com">
+        </div>
+          <div id="mce-responses" class="clear">
+            <div class="response" id="mce-error-response" style="display:none"></div>
+            <div class="response" id="mce-success-response" style="display:none"></div>
+          </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+            <div style="position: absolute; left: -5000px;"><input type="text" name="b_9009493a03af3d5460e11e80e_0af9730257" tabindex="-1" value=""></div>
+            <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button action-button"></div>
+            </div>
+        </form>
+        </div>
+
+        <!--End mc_embed_signup-->
+
+    </div>
+    <script type="text/javascript">
+    $('a[rel*=leanModal]').leanModal({ top : 200, closeButton: ".modal_close" });
+
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+d.toUTCString();
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1);
+            if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+        }
+        return "";
+    }
+
+    function checkCookie() {
+        var modal=getCookie("seenModal");
+        if (modal=="") {
+            $("#lean_overlay").click();
+            setCookie("seenModal", true, 30); 
+        }
+    }
+    checkCookie();
+      
+      
+    </script>
 </body>
 </html>

@@ -4897,7 +4897,7 @@ be found in product.scss
       .icon {
         font-family: 'icons';
         font-size:99px;
-        color:#ffffff;
+        color:#000000;
         line-height: 62px;
         @include opacity(0.5);
 
@@ -6463,4 +6463,57 @@ be found in product.scss
          url('{{ "Neutra2/Neutra2Text-DemiItalic.svg" | asset_url }}#TheanoDidotRegular') format('svg');
     font-weight: bold;
     font-style: italic;
+}
+
+//************************************************************************//
+// Prefixer
+//************************************************************************//
+
+#signUpOverlay {
+    width: 500px;
+    padding: 30px;
+    display: none;
+    background: #FFF;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7);
+    -moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);
+    text-align:center;
+}
+#signUpOverlay h1{
+  font-family: "Source Sans Pro",sans-serif;
+  font-weight: 200;
+}
+
+#signUpOverlay .email{
+  padding: 8px 0 8px 8px;
+  width: 100%;
+  background: transparent;
+  font-size: 12px;
+  font-family: "Open Sans",sans-serif;
+  color: #bbb;
+  border:1px solid #bbb;
+  margin-top:20px;
+}
+
+#signUpOverlay .action-button{
+  margin-top:20px;
+}
+
+#signUpOverlay .modal_close{
+  position:absolute;
+  top: 5px;
+  right:10px;
+  cursor:pointer;
+}
+
+#lean_overlay {
+  position: fixed;
+  z-index: 10000;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  display: none;
+  opacity: 0.5;
 }
