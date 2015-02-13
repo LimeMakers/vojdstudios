@@ -33,13 +33,13 @@
             <div class="content-inner-wrap">
               <div class="content {{ settings[position] }}">
                 {% if settings[title] != blank %}
-                  <h2 class="title">{{ settings[title] }}</h2>
+                  <h2 data-os-animation="fadeInLeft" data-os-animation-delay="0s" class="title os-animation">{{ settings[title] }}</h2>
                 {% endif %}
                 {% if settings[tagline] != blank %}
-                  <h3 class="tagline">{{ settings[tagline] }}</h3>
+                  <h3 data-os-animation="fadeInLeft" data-os-animation-delay="0s" class="os-animation tagline">{{ settings[tagline] }}</h3>
                 {% endif %}
                 {% if settings[button] != blank and settings[link] != blank %}
-                  <a class="call-to-action" href="{{ settings[link] }}">
+                  <a data-os-animation="fadeInLeft" data-os-animation-delay="0s" class="call-to-action os-animation" href="{{ settings[link] }}">
                     {{ settings[button] }} <span class="arrow">></span>
                   </a>
                 {% endif %}
@@ -86,7 +86,7 @@
 <!-- Featured collections
 ============================================= -->
 <section class="featured-collections {{ positionClass }}">
-  <h2 class="section-title section-border">{{ 'home_page.featured_collections.title' | t }}</h2>
+  <h2 data-os-animation="fadeInUp" data-os-animation-delay="0s" class="section-title section-border os-animation">{{ 'home_page.featured_collections.title' | t }}</h2>
   <div class="wrap">
 
     {% if collections[settings.featured-collection-1].products.size > 0 or collections[settings.featured-collection-2].products.size > 0 or collections[settings.featured-collection-3].products.size > 0 %}
@@ -108,9 +108,9 @@
       {% else %}
         {% assign imgSrc-3 = collections[settings.featured-collection-3].products.first.featured_image | product_img_url: 'large' %}
       {% endif %}
-      
+
       {% if collections[settings.featured-collection-1].products.size > 0 %}
-        <div class="collection-wrap first">
+        <div data-os-animation="fadeInUp" data-os-animation-delay="0s"  class="os-animation collection-wrap first">
           <div class="collection" style="background-image:url({{ imgSrc-1 }});">
             <a href="{{ collections[settings.featured-collection-1].url }}">
               <h3 class="label preload">{{ collections[settings.featured-collection-1].title }}</h3>
@@ -122,7 +122,7 @@
 
       {% if collections[settings.featured-collection-2].products.size > 0 %}
         <div class="collection-wrap">
-          <div class="collection" style="background-image:url({{ imgSrc-2 }});">
+          <div data-os-animation="fadeInUp" data-os-animation-delay="0s"  class="os-animation collection" style="background-image:url({{ imgSrc-2 }});">
             <a href="{{ collections[settings.featured-collection-2].url }}">
               <h3 class="label preload">{{ collections[settings.featured-collection-2].title }}</h3>
               <span class="browse">{{ 'collections.collection.browse' | t }}</span>
@@ -130,9 +130,9 @@
           </div>
         </div>
       {% endif %}
-      
+
       {% if collections[settings.featured-collection-3].products.size > 0 %}
-        <div class="collection-wrap">
+        <div data-os-animation="fadeInUp" data-os-animation-delay="0s" class="os-animation collection-wrap">
           <div class="collection" style="background-image:url({{ imgSrc-3 }});">
             <a href="{{ collections[settings.featured-collection-3].url }}">
               <h3 class="label preload">{{ collections[settings.featured-collection-3].title }}</h3>
@@ -165,7 +165,7 @@
 <!-- Featured products
 ============================================= -->
 <section class="featured-products clearfix {{ positionClass }} {% if featured-product-limit > 4 %}multi-row{% endif %}">
-  <h2 class="section-title section-border">{{ 'home_page.featured_products.title' | t }}</h2>
+  <h2 data-os-animation="fadeInUp" data-os-animation-delay="0s" class="section-title section-border os-animation">{{ 'home_page.featured_products.title' | t }}</h2>
 
   {% if shop.products_count > 0 and collections.[settings.featured-products-collection].title.size == 0 %}
 

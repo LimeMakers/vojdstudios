@@ -1,4 +1,4 @@
-<li {% assign itemType = product %}{% if template contains 'search' %}{% assign itemType = item %}{% elsif template contains 'product' %}{% assign itemType = prod %}{% endif %} class="product product-{{ itemType.id }} {% include 'for-looper' %} {% cycle 'flush', '', '', '' %}">
+<li data-os-animation="fadeInUp" data-os-animation-delay="0.25s" {% assign itemType = product %}{% if template contains 'search' %}{% assign itemType = item %}{% elsif template contains 'product' %}{% assign itemType = prod %}{% endif %} class="os-animation product product-{{ itemType.id }} {% include 'for-looper' %} {% cycle 'flush', '', '', '' %}">
 
   {% if settings.products-per-row == 'two' and template == 'collection' %}
     {% assign productImageSize = '1024x1024' %}
@@ -27,8 +27,8 @@
         {% if template == "index" %}
         {% else %}
         <p class="price"><span class="money">{{ itemType.price_min | money }}</span></p>
-        {% endif %} 
-        
+        {% endif %}
+
       {% endif %}
     {% else %}
       <p class="price"><span class="label">{{ 'products.product.sold_out' | t }}</span></p>

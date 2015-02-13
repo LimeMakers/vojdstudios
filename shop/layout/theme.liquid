@@ -18,7 +18,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="wot-verification" content="67aa63b67a7b424854c5"/>
   <meta name="google-site-verification" content="ArnKk0b2uKtmObxc1HaUTNo2XQkC2kc5KuQwYPzVl_8" />
-  
+
   <title>{% if template == "index" %} {{ page_title }} {% else %} {{ page_title }} &ndash; {{ shop.name }} {% endif %}</title>
 
   {% if page_description %}
@@ -30,6 +30,8 @@
   <meta name="viewport" content="width=device-width" />
   <link href="{{ 'favicon.ico' | asset_url }}" rel="shortcut icon" />
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/animate.css/3.1.0/animate.css" rel="stylesheet">
+
 
   <!-- Fonts
   ///////////////////////////////////////// -->
@@ -46,6 +48,8 @@
 </script>
 
   <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+
+
   <script>
 
     var googleFonts = [];
@@ -322,13 +326,41 @@
           var modal=getCookie("seenModal");
           if (modal=="") {
               $("#lean_overlay").click();
-              setCookie("seenModal", true, 30); 
+              setCookie("seenModal", true, 30);
           }
       }
       checkCookie();
     });
-      
-      
+
+
+    </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
+    <script type="text/javascript">
+      function onScrollInit( items, trigger ) {
+          items.each( function() {
+            var osElement = $(this),
+                osAnimationClass = osElement.attr('data-os-animation'),
+                osAnimationDelay = osElement.attr('data-os-animation-delay');
+
+                osElement.css({
+                  '-webkit-animation-delay':  osAnimationDelay,
+                  '-moz-animation-delay':     osAnimationDelay,
+                  'animation-delay':          osAnimationDelay
+                });
+
+                var osTrigger = ( trigger ) ? trigger : osElement;
+
+                osTrigger.waypoint(function() {
+                  osElement.addClass('animated').addClass(osAnimationClass);
+                  },{
+                      triggerOnce: true,
+                      offset: '90%'
+                });
+          });
+        }
+
+         onScrollInit( $('.os-animation') );
+         onScrollInit( $('.staggered-animation'), $('.staggered-animation-container') );
     </script>
 </body>
 </html>

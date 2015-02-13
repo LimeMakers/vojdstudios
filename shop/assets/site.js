@@ -1807,7 +1807,7 @@ Table of Contents
 							_ref = response.data;
 							for (_i = 0, _len = _ref.length; _i < _len; _i++) {
 								photo = _ref[_i];
-								_this.photoContainer.append("<a class='instagram-photo' target='_blank' href='" + photo.link + "'><img src='" + photo.images.low_resolution.url + "'/></a>");
+								_this.photoContainer.append("<a data-os-animation='fadeInUp' data-os-animation-delay='0s' class='os-animation instagram-photo' target='_blank' href='" + photo.link + "'><img src='" + photo.images.low_resolution.url + "'/></a>");
 							}
 							return _this.photoContainer.imagesLoaded(function() {
 								_this.photoContainer.addClass('visible').height('auto');

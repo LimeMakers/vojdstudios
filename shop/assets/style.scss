@@ -65,7 +65,13 @@ td { vertical-align: top; }
 
 .chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
 
+.os-animation{
+  opacity: 0;
+}
 
+.os-animation.animated{
+    opacity: 1;
+}
 
 //************************************************************************//
 // Prefixer
@@ -409,7 +415,7 @@ $placeholders: '-webkit-input-placeholder',
     font-weight: bold;
     font-style: normal;
 }
-$content-width: 84%;
+$content-width: 94%;
 $max-width: 1030px;
 $min-width: 290px;
 
@@ -658,7 +664,7 @@ body {
     font-family: $title-font;
     color: $title-color;
 
-    
+
 
     a { color: $title-color; }
 
@@ -763,7 +769,7 @@ body {
         max-width: 100%;
         visibility: visible;
 
-        .tools-left { 
+        .tools-left {
           float: left;
 
           & > *:first-child {
@@ -771,7 +777,7 @@ body {
           }
         }
 
-        .tools-right { 
+        .tools-right {
           float: right;
 
           & > *:last-child {
@@ -1026,7 +1032,7 @@ body {
       }
     }
   }
-} 
+}
 
 .currency-switcher {
   font-family: $meta-font;
@@ -2371,7 +2377,7 @@ table.mobile-layout {
       font-size: 21px;
       font-family: $title-font;
 
-      
+
 
       &.preload { visibility:hidden; }
     }
@@ -2541,7 +2547,7 @@ table.mobile-layout {
     font-family: $title-font;
     margin:10px 0 0;
 
-    
+
 
     a {
       color: $title-color;
@@ -2893,7 +2899,7 @@ be found in product.scss
         border-top:none;
 
         &.first { border-top: 1px solid $primary-border-color; }
-        &:before { 
+        &:before {
           display: inline-block;
           vertical-align: top;
         }
@@ -2946,7 +2952,7 @@ be found in product.scss
       font-family: $title-font;
       margin-bottom:12px;
 
-      
+
     }
 
     .email {
@@ -3056,7 +3062,7 @@ be found in product.scss
       font-family: $title-font;
       margin:0 0 25px;
 
-      
+
 
       .default {
         font-size: 12px;
@@ -3502,7 +3508,7 @@ be found in product.scss
           font-weight: 700;
           line-height: 1.2;
 
-          
+
         }
 
         a:hover {
@@ -3878,7 +3884,7 @@ be found in product.scss
         color: $light-text-color;
         text-align: right;
 
-        @include breakpoint(small) { 
+        @include breakpoint(small) {
           display: inline-block;
           vertical-align: top;
         }
@@ -3967,7 +3973,7 @@ be found in product.scss
       display: inline;
       white-space: normal;
 
-      
+
 
       @include breakpoint(small) {
         display: block;
@@ -4139,7 +4145,7 @@ be found in product.scss
 
   @-ms-keyframes slideup {
     0% {
-      opacity: 0; 
+      opacity: 0;
       -webkit-transform: translateY(2000px) rotate(10deg);
     }
 
@@ -4314,7 +4320,7 @@ be found in product.scss
     max-width: 300px;
     display: block;
     margin: 0 auto;
-    
+
     &:hover {
       color: #999999;
     }
@@ -4333,7 +4339,7 @@ be found in product.scss
   .gift-card-outer-container {
     background-color: #34aadc;
     border-radius: 4px;
-    -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.1) inset; 
+    -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.1) inset;
     box-shadow:0 0 0 1px rgba(0,0,0,0.1) inset;
     padding: 1em;
     -webkit-animation: container-slide 0.8s ease-in-out;
@@ -4342,7 +4348,7 @@ be found in product.scss
 
   .gift-card-inner-container {
     background-color: #fff;
-    -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.1); 
+    -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
     box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
     border-radius: 2px;
     -webkit-animation: cardslide 0.8s ease-in-out;
@@ -4395,7 +4401,7 @@ be found in product.scss
     margin-bottom: 1.25em;
     margin-top: 1.25em;
     position: relative;
-    
+
     .corner {
       display: block;
       width: 47px;
@@ -4643,7 +4649,7 @@ be found in product.scss
     padding: 3em 0;
     -webkit-animation: fadein 0.5s ease-in-out both 0.4s;
     animation: fadein 0.5s ease-in-out both 0.4s;
-    
+
     .gift-card-icon {
       width: 45px;
       display: inline-block;
@@ -4953,11 +4959,13 @@ be found in product.scss
     position: absolute;
     text-align: left;
     padding:0 15px;
+    max-width: 50%;
 
     @include breakpoint(small) {
       position: static;
       text-align: center;
       padding:20px 15px;
+      max-width: none;
     }
 
     &.left    { left:0;     }
@@ -4983,7 +4991,7 @@ be found in product.scss
       font-family: $title-font;
       text-shadow: 0px 0px 10px rgba(0,0,0,0.33);
 
-      
+
 
       @include breakpoint(small) {
         font-size:36px;
@@ -4991,17 +4999,18 @@ be found in product.scss
         overflow-x:hidden;
         text-shadow: none;
 
-        
+
       }
       @include breakpoint(phone) { font-size:21px; }
     }
     .tagline {
-      font-size: 28px;
+      font-size: 14px;
       font-weight:400;
       color:#ffffff;
       margin-top:4px;
       cursor: default;
       text-shadow: 0px 0px 10px rgba(0,0,0,0.33);
+      margin-bottom:10px;
 
       @include breakpoint(small) {
         font-size:16px;
@@ -5073,12 +5082,12 @@ be found in product.scss
       font-family: $title-font;
       line-height: 33px;
 
-      
+
 
       @include breakpoint(small) {
         font-size:21px;
 
-        
+
       }
     }
 
@@ -5192,7 +5201,7 @@ be found in product.scss
       margin-bottom:18px;
       color: $title-color;
 
-      
+
 
       &:hover { color: $accent-color; }
     }
@@ -5213,7 +5222,7 @@ be found in product.scss
 .as-seen-on {
   padding-bottom: 65px;
   font-size: 0;
-  text-align: center; 
+  text-align: center;
 }
 
 .as-seen-on-item {
@@ -5287,7 +5296,7 @@ be found in product.scss
   visibility: hidden;
   display: inline-block;
   margin: 0 10px 20px;
-  width: calc(16.666% - 20px);
+  width: calc(33.33% - 20px);
 
   img {
     max-width: 100%;
@@ -5411,7 +5420,7 @@ be found in product.scss
       font-family: $title-font;
       margin-bottom:10px;
 
-      
+
     }
 
     .address, .city, .country { display:block; }
